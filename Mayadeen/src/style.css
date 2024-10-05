@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  --primary: #FBB52E;
+  --secondary: #444444;
+  --accent: #EEEFF4;
+  --error: #F50A58;
+  --suuccess: #1eb854;
+  --warning: #f59e0b;
+  --info: #00C4FF;
+}
+
+.background-image {
+  background-image: url("/assets/home/background.svg");
+  background-size: 60%
+
+}
+.header-style {
+  @apply text-2xl  border-solid border-primary text-secondary pe-5 pb-1;
+  border-bottom-width: 3px;
+  font-weight: 600;
+}
+.controlpanel-loading{
+    width: 75vw !important;
+}
+.slide-fade-enter-active {
+  transition: all 0.4s;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.3s;
+}
+[dir="rtl"] .slide-fade-enter-from,
+[dir="rtl"] .slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+[dir="ltr"] .slide-fade-enter-from,
+[dir="ltr"] .slide-fade-leave-to {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+.page-loading {
+    filter: blur(1px) opacity(80%);
+}
+.leaflet-bottom.leaflet-right{
+  display: none !important;
+} 

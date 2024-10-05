@@ -1,0 +1,11 @@
+TODO : 
+[ ] - Pools must be array if pool not one object
+[ ] - Fix forget Password
+[ ] - Finish orders create and view
+Priority : 
+1 [X] - number validation
+2 [X] - delete rectangle in agreements
+3 [ ] - add order bug
+4 [X] - google map API
+5 [ ] - center map on saudi arabia
+6 [X] - get back to home after error when adding real estate
