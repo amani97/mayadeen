@@ -27,12 +27,12 @@ export default [
     },
     {
         path: "/",
-        component: () => import("@/components/layout-home.vue"),
+        component: () => import("./layout.vue"),
         children: [
             {
                 path: "/",
                 name: "home",
-                component: () => import("./pages/guest-home/index.vue"),
+                component: () => import("./pages/landing-page/index.vue"),
                 meta: {
                     title: "",
                     whiteListed: true,
@@ -60,6 +60,15 @@ export default [
         path: "/home",
         component: () => import("@/components/layout-home.vue"),
         children: [
+            {
+                path: "main",
+                name: "main",
+                component: () => import("./pages/guest-home/index.vue"),
+                meta: {
+                    title: "",
+                    whiteListed: true,
+                },
+            },
             {
                 path: "estates-sections",
                 name: "estates-sections",

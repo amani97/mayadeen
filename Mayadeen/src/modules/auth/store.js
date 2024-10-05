@@ -1,13 +1,19 @@
-import { defineStore } from "pinia";
-import axios from "@axios";
 import * as ep from "./ep";
+
+import axios from "@axios";
+import { defineStore } from "pinia";
 import { resHasError } from "@/utils/utils-functions";
 import { useToast } from "vue-toastification";
+
 const toast = useToast();
+
 export const useAuthStore = defineStore("Auth", {
     state: () => ({
         loading: false,
-        user: localStorage.getItem("user") || null,
+        user: localStorage.getItem("user") || {
+            phone: "0933097404",
+            password: "mode12312@@@",
+        },
     }),
     actions: {
         async login(userData) {

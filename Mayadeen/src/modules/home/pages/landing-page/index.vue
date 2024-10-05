@@ -29,6 +29,12 @@ onMounted(() => {
         </p>
         <Map @show=""></Map>
         <div class="flex flex-col gap-5 button-container">
+             <router-link to="/home/main"
+                ><img
+                    class="w-10 text-primary"
+                    src="/assets/sidebar/arrow-back.svg"
+                    alt=""
+            /></router-link>
             <router-link to="/home/notification"
                 ><img
                     class="w-10"

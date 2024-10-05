@@ -1,11 +1,18 @@
-import authRoutes from "@/modules/auth/router.js";
-import homeRoutes from "@/modules/home/router.js";
-import rentalRoutes from "@/modules/home/daily-rental/route.js";
-import controlpanel from "@/modules/dashboard/router.js";
 import { createRouter, createWebHashHistory } from "vue-router";
-import { isLoggedIn } from "../utils/auth-helpers";
+
 import { START_LOCATION } from "vue-router";
-const routes = [...authRoutes, ...homeRoutes, ...rentalRoutes, ...controlpanel];
+import authRoutes from "@/modules/auth/router.js";
+import controlpanel from "@/modules/dashboard/router.js";
+import homeRoutes from "@/modules/home/router.js";
+import { isLoggedIn } from "../utils/auth-helpers";
+import rentalRoutes from "@/modules/home/daily-rental/route.js";
+
+const routes = [
+    ...authRoutes,
+    ...homeRoutes,
+    ...rentalRoutes,
+    ...controlpanel
+];
 
 export const router = createRouter({
     history: createWebHashHistory(),
@@ -13,6 +20,7 @@ export const router = createRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
+   
     if (isLoggedIn() && to.meta.redirectIfLoggedIn)
         return next({ name: "landingPage" });
 

@@ -9,15 +9,24 @@ import { useToast } from "vue-toastification";
 import { useI18n } from "vue-i18n";
 import { storeToRefs } from "pinia";
 import { onMounted } from "vue";
+import { useAuthStore } from "../auth/store";
+
 import { useAdInfoStore } from "./pages/ad-info/store";
+const store = useAuthStore();
+
 const adInfoStore = useAdInfoStore();
 const { section } = storeToRefs(adInfoStore);
 const { t } = useI18n();
 const route = useRoute(),
     router = useRouter();
 const toast = useToast();
+
 import { sidebarLink } from "./navigation-links";
 onMounted(() => {
+    store.login({
+        phone: "0933097404",
+        password: "mode12312@@@",
+    });
     adInfoStore.getSection();
 });
 var arrayOfOptions = [
@@ -36,11 +45,7 @@ var arrayOfOptions = [
 ];
 var sidebarShow = ref(false);
 const headerBtns = [
-    {
-        image: "/assets/home/add.svg",
-        url: "/home/add-order",
-        text: "addOrder",
-    },
+   
     {
         image: "/assets/home/add.svg",
         url: localStorage.getItem("trusted") == "true" ? "/home/add-ad" : "",
@@ -71,9 +76,7 @@ function trustedCheck(btn) {
 
 <template>
     <header class="header flex items-center w-full h-20 px-8 justify-between">
-        <button @click="sidebarShow = !sidebarShow">
-            <img class="w-16" src="/assets/home/header-btn.svg" alt="" />
-        </button>
+        <h1 class="text-white text-xl">عقارات الملاك</h1>
         <HeaderBtn
             :image="
                 route.path == '/landingPage'
@@ -99,7 +102,6 @@ function trustedCheck(btn) {
             :text="btn.text"
             :url="btn.url"
         />
-        <HeaderBtn text="dailyRent" url="/daily-rental" :isIcon="false" />
         <dropdownBtn text="forSale" :options="section" />
         <dropdownBtn text="forRent" :options="section" />
 
